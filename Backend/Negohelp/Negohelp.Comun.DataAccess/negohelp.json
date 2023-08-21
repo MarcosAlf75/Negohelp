@@ -1,0 +1,27 @@
+{
+	"title": "Informacion sobre la coneccion",
+	"InformacionConexion": {
+		"Clientes": {
+			"Data Source": "DESKTOP-FUH47CB\\SQLEXPRESS",
+			"Initial Catalog": "NH_Clientes",
+			"User ID": "sa",
+			"Password": "Pass1234",
+			"Connect Timeout": 30,
+			"Encrypt": "False",
+			"TrustServerCertificate": "False",
+			"ApplicationIntent": "ReadWrite",
+			"MultiSubnetFailover": "False"
+		},
+		"Inventario": {
+			"Data Source": "DESKTOP-FUH47CB\\\\SQLEXPRESS\\",
+			"Initial Catalog": "Clientes",
+			"User ID": "sa",
+			"Password": "Pass1234",
+			"Connect Timeout": 30,
+			"Encrypt": "False",
+			"TrustServerCertificate": "False",
+			"ApplicationIntent": "ReadWrite",
+			"MultiSubnetFailover": "False"
+		}
+	}
+}
