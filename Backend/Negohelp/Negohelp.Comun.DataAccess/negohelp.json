@@ -1,9 +1,9 @@
 {
-	"title": "Informacion sobre la coneccion",
+	"title": "Informacion sobre la conexion",
 	"InformacionConexion": {
 		"Clientes": {
-			"Data Source": "DESKTOP-FUH47CB\\SQLEXPRESS",
-			"Initial Catalog": "NH_Clientes",
+			"Data Source": "MATB\\SQLEXPRESS",
+			"Initial Catalog": "Negohelp",
 			"User ID": "sa",
 			"Password": "Pass1234",
 			"Connect Timeout": 30,
@@ -13,7 +13,7 @@
 			"MultiSubnetFailover": "False"
 		},
 		"Inventario": {
-			"Data Source": "DESKTOP-FUH47CB\\\\SQLEXPRESS\\",
+			"Data Source": "MATB\\SQLEXPRESS",
 			"Initial Catalog": "Clientes",
 			"User ID": "sa",
 			"Password": "Pass1234",

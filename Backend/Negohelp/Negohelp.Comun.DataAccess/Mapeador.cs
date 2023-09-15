@@ -12,35 +12,16 @@ namespace Negohelp.Comun.DataAccess
 			typeof(TipoCliente),
 			typeof(TipoIdentificacion)
 		};
-		public static IEnumerable<T> DataTableToList<T>(this DataTable dtDatos) where T : class, new()
+		public static List<T> DataTableToList<T>(this DataTable dtDatos) where T : class, new()
 		{
 			try
 			{
-				//var objType = typeof(T);
-				//ICollection<PropertyInfo> lstPropiedades;
-
-				//lstPropiedades = objType.GetProperties().Where(property => property.CanWrite).ToList();
 
 				var list = new List<T>(dtDatos.Rows.Count);
 
-				foreach (var drFila in dtDatos.AsEnumerable())
+				foreach (DataRow drFila in dtDatos.Rows)
 				{
-					var objeto = MappingColumns<T>(dtDatos);
-
-					//foreach (var propiedades in lstPropiedades)
-					//{
-					//	try
-					//	{
-					//		var propType = Nullable.GetUnderlyingType(propiedades.PropertyType) ?? propiedades.PropertyType;
-					//		var safeValue = drFila[propiedades.Name] == null ? null : Convert.ChangeType(drFila[propiedades.Name], propType);
-
-					//		propiedades.SetValue(obj, safeValue, null);
-					//	}
-					//	catch
-					//	{
-					//		// ignored
-					//	}
-					//}
+					var objeto = MappingColumns<T>(drFila);
 
 					list.Add(objeto);
 				}
@@ -49,22 +30,22 @@ namespace Negohelp.Comun.DataAccess
 			}
 			catch
 			{
-				return Enumerable.Empty<T>();
+				return null;
 			}
 		}
 
-		public static T DataTableToObject<T>(this DataTable dtDatos) where T : class, new()
+		public static T DataRowToObject<T>(this DataRow drDatos) where T : class, new()
 		{
 			try
 			{
-				return MappingColumns<T>(dtDatos);
+				return MappingColumns<T>(drDatos);
 			}
 			catch
 			{
 				return null;
 			}
 		}
-		private static T MappingColumns<T>(DataTable dtDatos) where T : class, new()
+		private static T MappingColumns<T>(DataRow drDatos) where T : class, new()
 		{
 			var objeto = new T();
 			var objType = typeof(T);
@@ -72,7 +53,7 @@ namespace Negohelp.Comun.DataAccess
 			ICollection<PropertyInfo> lstPropiedades;
 
 			lstPropiedades = objType.GetProperties().Where(property => property.CanWrite).ToList();
-			DataRow drDatos = dtDatos.Rows.Count > 0 ? dtDatos.Rows[0] : null;
+			//DataRow drDatos = dtDatos.Rows.Count > 0 ? dtDatos.Rows[0] : null;
 
 			foreach (var propiedad in lstPropiedades)
 			{
@@ -96,7 +77,7 @@ namespace Negohelp.Comun.DataAccess
 				}
 				catch
 				{
-					// ignored
+					// ignored for a while
 				}
 			}
 			return objeto;
