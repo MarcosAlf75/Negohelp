@@ -1,7 +1,7 @@
 {
 	"title": "Informacion sobre la conexion",
 	"InformacionConexion": {
-		"Clientes": {
+		"Negohelp": {
 			"Data Source": "MATB\\SQLEXPRESS",
 			"Initial Catalog": "Negohelp",
 			"User ID": "sa",
@@ -12,9 +12,9 @@
 			"ApplicationIntent": "ReadWrite",
 			"MultiSubnetFailover": "False"
 		},
-		"Inventario": {
+		"Autenticacion": {
 			"Data Source": "MATB\\SQLEXPRESS",
-			"Initial Catalog": "Clientes",
+			"Initial Catalog": "Autenticacion",
 			"User ID": "sa",
 			"Password": "Pass1234",
 			"Connect Timeout": 30,

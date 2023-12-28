@@ -4,7 +4,7 @@
 -- Description:	Crear nuevo ciente natural
 -- =============================================
 -- drop procedure CrearClienteEmpresa
-USE Clientes
+USE Negohelp
 GO
 SET ANSI_NULLS ON
 GO

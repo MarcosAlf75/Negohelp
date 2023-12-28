@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Negohelp.Comun.Models
 {
 	public class UserDto
 	{
+		[Required]
 		public required string UserName { get; set; }
+		[Required]
 		public required string Password { get; set; }
 	}
+
 }

@@ -5,7 +5,7 @@
 -- =============================================  
 -- drop procedure CrearClientePersona 
 
-USE Clientes
+USE Negohelp
 GO
   
 CREATE PROCEDURE CrearClientePersona  

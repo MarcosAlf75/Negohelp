@@ -5,10 +5,10 @@ namespace Negohelp.Api.Controllers
 {
 	internal class MappingProfiles : Profile
 	{
-        public MappingProfiles()
-        {
-            CreateMap<ClientePersona, ClientePersonaDto>().ReverseMap();
+		public MappingProfiles()
+		{
+			CreateMap<ClientePersona, ClientePersonaDto>().ReverseMap();
 			CreateMap<ClienteEmpresa, ClienteEmpresaDto>().ReverseMap();
-        }
-    }
+		}
+	}
 }

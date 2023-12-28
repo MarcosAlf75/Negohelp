@@ -1,9 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Negohelp.IRepository;
-using Negohelp.Comun.Models;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Negohelp.Comun.ApiHelpers;
+using Negohelp.Comun.Models;
+using Negohelp.IRepository;
 using System.ComponentModel.DataAnnotations;
-using AutoMapper;
 
 namespace Negohelp.Api.Controllers
 {
@@ -20,9 +21,9 @@ namespace Negohelp.Api.Controllers
 			_mapper = mapper;
 		}
 
-		[HttpGet]
+		[HttpGet, Authorize]
 		[ProducesResponseType(200, Type = typeof(ICliente))]
-		public IActionResult ConsultarClienteIdentificacion([Required]string identificacion)
+		public IActionResult ConsultarClienteIdentificacion([Required] string identificacion)
 		{
 			var cliente = _clienteRepository.ConsultarClienteIdentificacion(identificacion);
 
@@ -64,7 +65,7 @@ namespace Negohelp.Api.Controllers
 		[ProducesResponseType(400)]
 		public IActionResult CrearPersona(ClientePersonaDto persona)
 		{
-			ValidarCliente validar = new ValidarCliente();
+			DataValidation validar = new DataValidation();
 			var cliente = _mapper.Map<ClientePersonaDto, ClientePersona>(persona);
 
 
@@ -85,15 +86,15 @@ namespace Negohelp.Api.Controllers
 				return BadRequest(ModelState);
 
 
-			return Ok(new ApiResponse<ClientePersonaDto> { Success = true, Message= "Cliente creado exitosamente",  Data = clientePersona });
+			return Ok(new ApiResponse<ClientePersonaDto> { Success = true, Message = "Cliente creado exitosamente", Data = clientePersona });
 		}
 
 		[HttpPost]
 		[ProducesResponseType(204)]
 		[ProducesResponseType(400)]
 		public IActionResult CrearEmpresa(ClienteEmpresaDto empresa)
-		{			
-			ValidarCliente validarEmpresa = new ValidarCliente();
+		{
+			DataValidation validarEmpresa = new DataValidation();
 			ClienteEmpresa cliente = _mapper.Map<ClienteEmpresaDto, ClienteEmpresa>(empresa);
 
 			ValidationResult<ClienteEmpresa> resultValidacion = validarEmpresa.ValidarEmpresa(cliente.Identificacion, cliente.Nombre);

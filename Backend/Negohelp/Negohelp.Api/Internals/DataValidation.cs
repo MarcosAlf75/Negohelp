@@ -1,12 +1,13 @@
-﻿using Negohelp.Comun.Models;
-using Negohelp.Comun.ApiHelpers;
+﻿using Negohelp.Comun.ApiHelpers;
+using Negohelp.Comun.Models;
 
 namespace Negohelp.Api.Controllers
 {
-	internal class ValidarCliente
+	internal class DataValidation
 	{
 		private string mensaje = string.Empty;
 
+		#region ValidacionCliente
 		internal ValidationResult<ClientePersona> ValidarPersona(ClientePersona valPersona)
 		{
 
@@ -33,7 +34,7 @@ namespace Negohelp.Api.Controllers
 
 			return new ValidationResult<ClientePersona>() { ValidationSuccess = true, ValidationMessage = mensaje, ValidationData = valPersona };
 		}
-		internal ValidationResult<ClienteEmpresa> ValidarEmpresa(string identificacion,  string nombre)
+		internal ValidationResult<ClienteEmpresa> ValidarEmpresa(string identificacion, string nombre)
 		{
 
 			if (!ValidarIdentificacion(identificacion, TipoCliente.ClienteEmpresa, TipoIdentificacion.RUC))
@@ -63,6 +64,11 @@ namespace Negohelp.Api.Controllers
 		/// <param name="tipoCliente">Identifica si es persona o empresa (enumerador)</param>
 		/// <param name="tipoID">Tipo identificacion cedula, ruc o pasaporte (enumerador)</param>
 		/// <returns></returns>
+
+		#endregion
+
+
+		#region Validaciones Privadas (Internas)
 		private bool ValidarIdentificacion(string identificacion, TipoCliente tipoCliente, TipoIdentificacion tipoID)
 		{
 			if (string.IsNullOrEmpty(identificacion))
@@ -97,5 +103,6 @@ namespace Negohelp.Api.Controllers
 
 			return true;
 		}
+		#endregion
 	}
 }

@@ -1,4 +1,4 @@
-USE [Clientes]
+USE [Negohelp]
 GO
 
 /****** Object:  Table [dbo].[cl_clientes]    Script Date: 2023-07-19 1:03:41 PM ******/

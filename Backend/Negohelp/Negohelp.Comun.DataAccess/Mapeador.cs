@@ -1,6 +1,6 @@
-﻿using System.Data;
+﻿using Negohelp.Comun.Models;
+using System.Data;
 using System.Reflection;
-using Negohelp.Comun.Models;
 
 
 namespace Negohelp.Comun.DataAccess

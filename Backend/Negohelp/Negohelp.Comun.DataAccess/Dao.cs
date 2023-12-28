@@ -86,9 +86,15 @@ namespace Negohelp.Comun.DataAccess
 				{
 					if (sqlParametro.Direction == ParameterDirection.Output)
 					{
-						var paramSalida = new SqlParametro(sqlParametro.ParameterName, sqlParametro.SqlDbType, sqlParametro.Size);
-						paramSalida.Value = sqlParametro.Value;
-						paramSalida.Direction = sqlParametro.Direction;
+						//var paramSalida = new SqlParametro(sqlParametro.ParameterName, sqlParametro.SqlDbType, sqlParametro.Size);
+						//paramSalida.Value = sqlParametro.Value;
+						//paramSalida.Direction = sqlParametro.Direction;
+
+						var paramSalida = new SqlParametro(sqlParametro.ParameterName, sqlParametro.SqlDbType, sqlParametro.Size)
+						{
+							Value = sqlParametro.Value,
+							Direction = sqlParametro.Direction
+						};
 						parOutParametro.Add(paramSalida);
 					}
 				}
@@ -120,7 +126,7 @@ namespace Negohelp.Comun.DataAccess
 		}
 		#endregion
 
-		
+
 
 		#region Métodos públicos
 		//metodos públicos
@@ -176,9 +182,9 @@ namespace Negohelp.Comun.DataAccess
 			DateTime HoraFin;
 			DateTime HoraInicioTmp;
 			DateTime HoraFinTmp;
-			int NumeroTotalRegistros = 0;
+			int NumeroTotalRegistros;
 			TimeSpan hgTmp;
-			DataSet dsDatos = new DataSet();
+			DataSet dsDatos = new();
 			intNumOut = 0;
 
 			try

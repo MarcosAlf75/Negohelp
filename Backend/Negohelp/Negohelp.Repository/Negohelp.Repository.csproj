@@ -7,6 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="7.0.3" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Negohelp.Comun.DataAccess\Negohelp.Comun.DataAccess.csproj" />
     <ProjectReference Include="..\Negohelp.Comun.Models\Negohelp.Comun.Models.csproj" />
     <ProjectReference Include="..\Negohelp.IRepository\Negohelp.IRepository.csproj" />

@@ -4,12 +4,13 @@ namespace Negohelp.IRepository
 {
 	public interface IClienteRepository
 	{
-		/// <summary>
-		/// Busqueda de un cliente con Id interno de la base
-		/// </summary>
-		/// <param name="id">Id interno del cliente</param>
-		/// <returns>Objeto ClientePersona o ClienteEmpresa</returns>
-		//ICliente ConsultarClienteId(int id);
+		///// <summary>
+		///// Busqueda de un cliente con Id interno de la base
+		///// </summary>
+		///// <param name="id">Id interno del cliente</param>
+		///// <returns>Objeto ClientePersona o ClienteEmpresa</returns>
+		////ICliente ConsultarClienteId(int id);
+
 		/// <summary>
 		/// Busqueda de un cliente con identificacion
 		/// </summary>

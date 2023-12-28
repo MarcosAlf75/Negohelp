@@ -1,7 +1,7 @@
-﻿using System.Data;
-using Negohelp.IRepository;
-using Negohelp.Comun.DataAccess;
+﻿using Negohelp.Comun.DataAccess;
 using Negohelp.Comun.Models;
+using Negohelp.IRepository;
+using System.Data;
 //using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Negohelp.Repository
@@ -17,7 +17,7 @@ namespace Negohelp.Repository
 		public ICliente ConsultarClienteIdentificacion(string identificacion)
 		{
 			ICliente cliente;
-			IDataAccess dao = new Dao { CadenaDeConexion = "Clientes" };
+			IDataAccess dao = new Dao { CadenaDeConexion = "Negohelp" };
 			DataRow drDatos;
 
 			List<SqlParametro> lstParametros = new List<SqlParametro>
@@ -26,7 +26,7 @@ namespace Negohelp.Repository
 				new SqlParametro("@Identificacion", SqlDbType.VarChar, 20, identificacion),
 			};
 
-			using(dao)
+			using (dao)
 			{
 				var dsResultado = dao.EjecutarSp("ConsultarClienteIdentificacion", lstParametros);
 				if (dao.ParametroRetorno > 0)
@@ -62,7 +62,7 @@ namespace Negohelp.Repository
 		{
 			List<ListaClientes> clientes; // = new List<ClientesDto>();
 
-			IDataAccess dao = new Dao { CadenaDeConexion = "Clientes" };
+			IDataAccess dao = new Dao { CadenaDeConexion = "Negohelp" };
 
 			List<SqlParametro> lstParametros = new List<SqlParametro>
 			{
@@ -110,7 +110,7 @@ namespace Negohelp.Repository
 		public ClientePersona CrearClientePersona(ClientePersona persona)
 		{
 			ClientePersona cliente;
-			IDataAccess dao = new Dao { CadenaDeConexion = "Clientes" };
+			IDataAccess dao = new Dao { CadenaDeConexion = "Negohelp" };
 
 			List<SqlParametro> lstParametros = new List<SqlParametro>
 			{
@@ -126,7 +126,7 @@ namespace Negohelp.Repository
 			};
 
 			cliente = (ClientePersona)EjecutarSP("CrearClientePersona", lstParametros);
-	
+
 			return cliente;
 
 		}
@@ -139,7 +139,7 @@ namespace Negohelp.Repository
 			ICliente cliente;
 			DataRow drDatos;
 
-			IDataAccess dao = new Dao { CadenaDeConexion = "Clientes" };
+			IDataAccess dao = new Dao { CadenaDeConexion = "Negohelp" };
 			List<SqlParametro> lstParametros = new List<SqlParametro>
 			{
 				new SqlParametro("ReturnValue", SqlDbType.Int, ParameterDirection.ReturnValue, 4),
@@ -184,7 +184,7 @@ namespace Negohelp.Repository
 			int clienteId;
 
 			ICliente cliente;
-			IDataAccess dao = new Dao { CadenaDeConexion = "Clientes" };
+			IDataAccess dao = new Dao { CadenaDeConexion = "Negohelp" };
 
 			using (dao)
 			{
